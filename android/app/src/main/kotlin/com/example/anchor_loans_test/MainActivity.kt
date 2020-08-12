@@ -1,4 +1,4 @@
-package com.example.anchor_loans_test
+package com.anchorloans.crm
 
 import io.flutter.embedding.android.FlutterActivity
 
