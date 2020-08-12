@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "541769273364",
+    "firebase_url": "https://anchor-loans-test.firebaseio.com",
+    "project_id": "anchor-loans-test",
+    "storage_bucket": "anchor-loans-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541769273364:android:c6d71cf1b56da1d5df1701",
+        "android_client_info": {
+          "package_name": "com.anchorloans.crm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541769273364-rtopba8irm6a7bptft3tniolp7gljeri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPTXNRLmLVpeJ1H78kM4XfU46Pwob2ftE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541769273364-rtopba8irm6a7bptft3tniolp7gljeri.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
