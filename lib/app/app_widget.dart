@@ -15,7 +15,7 @@ class AppWidget extends StatelessWidget {
           : FlavorDebug.appName,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      initialRoute: '/',
+      initialRoute: '/home',
       onGenerateRoute: Modular.generateRoute,
     );
   }

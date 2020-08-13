@@ -19,9 +19,12 @@ class _DashboardPageState
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        automaticallyImplyLeading: false,
       ),
-      body: Column(
-        children: <Widget>[],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [],
+        ),
       ),
     );
   }

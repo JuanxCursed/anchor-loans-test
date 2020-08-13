@@ -1,4 +1,5 @@
 import 'package:anchor_loans_test/app/modules/dashboard/dashboard_module.dart';
+import 'package:anchor_loans_test/app/modules/location/location_module.dart';
 import 'package:anchor_loans_test/app/modules/notifications/notifications_module.dart';
 import 'package:anchor_loans_test/app/modules/profile/profile_module.dart';
 import 'package:anchor_loans_test/app/modules/settings/settings_module.dart';
@@ -19,8 +20,9 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   //use 'controller' variable to access controller
 
   List widgetOptions = [
-    NotificationsModule(),
     DashboardModule(),
+    NotificationsModule(),
+    LocationModule(),
     ProfileModule(),
     SettingsModule()
   ];
@@ -38,6 +40,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   Widget bottomNavigationBar() {
     return Observer(builder: (_) {
       return BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         backgroundColor: Colors.white,
         type: BottomNavigationBarType.fixed,
         currentIndex: controller.currentIndex,
@@ -46,11 +50,13 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
         },
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.notifications), title: Text('Notificações')),
-          BottomNavigationBarItem(
               icon: Icon(Icons.dashboard), title: Text('Dashboard')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.verified_user), title: Text('Perfil')),
+              icon: Icon(Icons.notifications), title: Text('Notificações')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.gps_fixed), title: Text('Localização')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person), title: Text('Perfil')),
           BottomNavigationBarItem(
               icon: Icon(Icons.settings), title: Text('Configurações')),
         ],

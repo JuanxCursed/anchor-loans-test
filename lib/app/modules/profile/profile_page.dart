@@ -18,9 +18,10 @@ class _ProfilePageState extends ModularState<ProfilePage, ProfileController> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        automaticallyImplyLeading: false,
       ),
       body: Column(
-        children: <Widget>[],
+        children: <Widget>[Text('Profile page')],
       ),
     );
   }

@@ -19,9 +19,10 @@ class _SettingsPageState
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        automaticallyImplyLeading: false,
       ),
       body: Column(
-        children: <Widget>[],
+        children: <Widget>[Text('Settings page')],
       ),
     );
   }

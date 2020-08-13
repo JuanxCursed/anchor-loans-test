@@ -1,18 +1,17 @@
-import 'package:anchor_loans_test/app/shared/widgets/loading.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'login_controller.dart';
+import 'register_controller.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final String title;
-  const LoginPage({Key key, this.title = "Login"}) : super(key: key);
+  const RegisterPage({Key key, this.title = "Register"}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends ModularState<LoginPage, LoginController> {
+class _RegisterPageState
+    extends ModularState<RegisterPage, RegisterController> {
   bool _obscureText = true;
   void _togglePassword() {
     setState(() {

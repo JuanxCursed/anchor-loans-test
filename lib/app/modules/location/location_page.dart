@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'notifications_controller.dart';
+import 'location_controller.dart';
 
-class NotificationsPage extends StatefulWidget {
+class LocationPage extends StatefulWidget {
   final String title;
-  const NotificationsPage({Key key, this.title = "Notifications"})
-      : super(key: key);
+  const LocationPage({Key key, this.title = "Location"}) : super(key: key);
 
   @override
-  _NotificationsPageState createState() => _NotificationsPageState();
+  _LocationPageState createState() => _LocationPageState();
 }
 
-class _NotificationsPageState
-    extends ModularState<NotificationsPage, NotificationsController> {
+class _LocationPageState
+    extends ModularState<LocationPage, LocationController> {
   //use 'controller' variable to access controller
 
   @override
@@ -23,7 +22,7 @@ class _NotificationsPageState
         automaticallyImplyLeading: false,
       ),
       body: Column(
-        children: <Widget>[Text('Notifications page')],
+        children: <Widget>[Text('Location page')],
       ),
     );
   }
