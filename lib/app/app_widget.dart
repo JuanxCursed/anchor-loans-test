@@ -3,6 +3,7 @@ import 'package:anchor_loans_test/app/shared/constants/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:anchor_loans_test/app/shared/constants/flavors.dart';
+import 'package:anchor_loans_test/app/shared/constants/routes.dart';
 import 'package:anchor_loans_test/app/shared/utils/environment.dart';
 
 class AppWidget extends StatelessWidget {
@@ -15,7 +16,7 @@ class AppWidget extends StatelessWidget {
           : FlavorDebug.appName,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      initialRoute: '/home',
+      initialRoute: Routes.home,
       onGenerateRoute: Modular.generateRoute,
     );
   }

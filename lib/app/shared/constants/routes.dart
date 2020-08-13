@@ -1,4 +1,5 @@
 class Routes {
+  static const launch = '/';
   static const login = '/login';
   static const home = '/home'; // dashboard equivalent
   static const welcome = '/welcome';

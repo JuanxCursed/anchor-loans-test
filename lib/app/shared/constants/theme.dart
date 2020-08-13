@@ -11,22 +11,40 @@ class AppTheme {
 
   static TextStyle body1 =
       TextStyle(fontSize: defaultFontSize, fontFamily: productSans);
-  static TextStyle body2 = TextStyle(fontSize: defaultFontSize * 1.1);
-  static TextStyle headline1 =
-      TextStyle(fontSize: defaultFontSize * 4, fontWeight: FontWeight.bold);
-  static TextStyle headline2 =
-      TextStyle(fontSize: defaultFontSize * 3.2, fontWeight: FontWeight.bold);
-  static TextStyle headline3 =
-      TextStyle(fontSize: defaultFontSize * 2.7, fontWeight: FontWeight.bold);
-  static TextStyle headline4 = TextStyle(
-    fontSize: defaultFontSize * 2.4,
+  static TextStyle body2 = TextStyle(
+    fontSize: defaultFontSize * 1.1,
+    color: Colors.grey.shade800,
+  );
+  static TextStyle headline1 = TextStyle(
+    fontSize: defaultFontSize * 2.5,
     fontWeight: FontWeight.bold,
     color: Colors.grey.shade800,
   );
-  static TextStyle headline5 =
-      TextStyle(fontSize: defaultFontSize * 2.0, fontWeight: FontWeight.bold);
-  static TextStyle headline6 =
-      TextStyle(fontSize: defaultFontSize * 1.4, fontWeight: FontWeight.bold);
+  static TextStyle headline2 = TextStyle(
+    fontSize: defaultFontSize * 2.2,
+    fontWeight: FontWeight.bold,
+    color: Colors.grey.shade800,
+  );
+  static TextStyle headline3 = TextStyle(
+    fontSize: defaultFontSize * 1.7,
+    fontWeight: FontWeight.bold,
+    color: Colors.grey.shade800,
+  );
+  static TextStyle headline4 = TextStyle(
+    fontSize: defaultFontSize * 1.6,
+    fontWeight: FontWeight.bold,
+    color: Colors.grey.shade800,
+  );
+  static TextStyle headline5 = TextStyle(
+    fontSize: defaultFontSize * 1.4,
+    fontWeight: FontWeight.bold,
+    color: Colors.grey.shade800,
+  );
+  static TextStyle headline6 = TextStyle(
+    fontSize: defaultFontSize * 1.3,
+    fontWeight: FontWeight.bold,
+    color: Colors.grey.shade800,
+  );
 
   static Color primaryColor = Colors.blue.shade600;
   static Color accentColor = Colors.blue.shade800;
