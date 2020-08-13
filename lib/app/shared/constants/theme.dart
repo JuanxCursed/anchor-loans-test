@@ -9,11 +9,19 @@ class AppTheme {
 
   static const defaultFontSize = 16.0;
 
-  static TextStyle body1 =
-      TextStyle(fontSize: defaultFontSize, fontFamily: productSans);
+  static TextStyle body1 = TextStyle(
+    fontSize: defaultFontSize * 0.8,
+    color: Colors.grey.shade400,
+  );
   static TextStyle body2 = TextStyle(
-    fontSize: defaultFontSize * 1.1,
-    color: Colors.grey.shade800,
+    fontSize: defaultFontSize,
+    fontFamily: productSans,
+  );
+
+  static TextStyle caption = TextStyle(
+    fontSize: defaultFontSize * 0.8,
+    fontWeight: FontWeight.bold,
+    color: Colors.blue.shade600,
   );
   static TextStyle headline1 = TextStyle(
     fontSize: defaultFontSize * 2.5,
@@ -74,15 +82,15 @@ class AppTheme {
       color: Colors.white54,
     ),
     textTheme: TextTheme(
-      headline1: headline1,
-      headline2: headline2,
-      headline3: headline3,
-      headline4: headline4,
-      headline5: headline5,
-      headline6: headline6,
-      bodyText1: body1,
-      bodyText2: body2,
-    ),
+        headline1: headline1,
+        headline2: headline2,
+        headline3: headline3,
+        headline4: headline4,
+        headline5: headline5,
+        headline6: headline6,
+        bodyText1: body1,
+        bodyText2: body2,
+        caption: caption),
     buttonTheme: ButtonThemeData(
       // buttonColor: primaryColor,
       textTheme: ButtonTextTheme.primary,

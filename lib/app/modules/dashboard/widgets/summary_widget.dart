@@ -23,10 +23,12 @@ class _SummaryState extends State<Summary> {
       child: Padding(
         padding: EdgeInsets.all(20.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               'Loan Summary',
-              style: Theme.of(context).textTheme.headline5,
+              style: Theme.of(context).textTheme.headline6,
+              textAlign: TextAlign.start,
             ),
             widget.isLoading
                 ? Center(
@@ -36,9 +38,7 @@ class _SummaryState extends State<Summary> {
                     dataMap: widget.chartMap,
                     animationDuration: Duration(milliseconds: 800),
                     chartLegendSpacing: 32.0,
-                    chartRadius: MediaQuery.of(context).size.width / 2.7,
-                    showChartValuesInPercentage: true,
-                    showChartValues: true,
+                    chartRadius: MediaQuery.of(context).size.width / 2.0,
                     showChartValuesOutside: true,
                     chartValueBackgroundColor: Colors.transparent,
                     showLegends: true,
@@ -47,8 +47,6 @@ class _SummaryState extends State<Summary> {
                       Color.fromARGB(255, 0, 123, 255),
                       Color.fromARGB(255, 0, 38, 69),
                     ],
-                    legendPosition: LegendPosition.right,
-                    decimalPlaces: 0,
                     showChartValueLabel: true,
                     initialAngle: -1.55,
                     chartValueStyle: defaultChartValueStyle.copyWith(

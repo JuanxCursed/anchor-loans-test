@@ -19,20 +19,35 @@ class Info extends StatefulWidget {
 class _InfoState extends State<Info> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0.0,
+    return Container(
       child: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(10.0),
         child: Row(children: [
-          Text(widget.title),
+          Text(
+            widget.title,
+            style: Theme.of(context).textTheme.subtitle2,
+            textAlign: TextAlign.start,
+          ),
           widget.text != null
               ? Column(
                   children: [
-                    Text(widget.caption),
-                    Text(widget.text),
+                    Text(
+                      widget.caption,
+                      style: Theme.of(context).textTheme.caption,
+                      textAlign: TextAlign.start,
+                    ),
+                    Text(
+                      widget.text,
+                      style: Theme.of(context).textTheme.bodyText1,
+                      textAlign: TextAlign.start,
+                    ),
                   ],
                 )
-              : Text(widget.caption),
+              : Text(
+                  widget.caption,
+                  style: Theme.of(context).textTheme.caption,
+                  textAlign: TextAlign.start,
+                ),
         ]),
       ),
     );
