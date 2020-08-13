@@ -1,9 +1,10 @@
+import 'package:flutter/material.dart';
+
 import 'settings_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:dio/dio.dart';
 import 'settings_page.dart';
 
-class SettingsModule extends ChildModule {
+class SettingsModule extends WidgetModule {
   @override
   List<Bind> get binds => [
         Bind((i) => SettingsController()),
@@ -15,4 +16,7 @@ class SettingsModule extends ChildModule {
       ];
 
   static Inject get to => Inject<SettingsModule>.of();
+
+  @override
+  Widget get view => SettingsPage();
 }

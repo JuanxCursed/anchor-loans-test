@@ -1,4 +1,9 @@
+import 'package:anchor_loans_test/app/modules/dashboard/dashboard_module.dart';
+import 'package:anchor_loans_test/app/modules/notifications/notifications_module.dart';
+import 'package:anchor_loans_test/app/modules/profile/profile_module.dart';
+import 'package:anchor_loans_test/app/modules/settings/settings_module.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'home_controller.dart';
 
@@ -13,16 +18,43 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends ModularState<HomePage, HomeController> {
   //use 'controller' variable to access controller
 
+  List widgetOptions = [
+    NotificationsModule(),
+    DashboardModule(),
+    ProfileModule(),
+    SettingsModule()
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-          leading: IconButton(
-            icon: Icon(Icons.highlight_off),
-            onPressed: controller.logout,
-          ),
-        ),
-        body: Text('Home page'));
+      body: Observer(builder: (_) {
+        return widgetOptions.elementAt(controller.currentIndex);
+      }),
+      bottomNavigationBar: bottomNavigationBar(),
+    );
+  }
+
+  Widget bottomNavigationBar() {
+    return Observer(builder: (_) {
+      return BottomNavigationBar(
+        backgroundColor: Colors.white,
+        type: BottomNavigationBarType.fixed,
+        currentIndex: controller.currentIndex,
+        onTap: (index) {
+          controller.updateCurrentIndex(index);
+        },
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.notifications), title: Text('Notificações')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.dashboard), title: Text('Dashboard')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.verified_user), title: Text('Perfil')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), title: Text('Configurações')),
+        ],
+      );
+    });
   }
 }

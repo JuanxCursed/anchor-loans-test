@@ -1,9 +1,10 @@
+import 'package:flutter/material.dart';
+
 import 'dashboard_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:dio/dio.dart';
 import 'dashboard_page.dart';
 
-class DashboardModule extends ChildModule {
+class DashboardModule extends WidgetModule {
   @override
   List<Bind> get binds => [
         Bind((i) => DashboardController()),
@@ -15,4 +16,7 @@ class DashboardModule extends ChildModule {
       ];
 
   static Inject get to => Inject<DashboardModule>.of();
+
+  @override
+  Widget get view => DashboardPage();
 }

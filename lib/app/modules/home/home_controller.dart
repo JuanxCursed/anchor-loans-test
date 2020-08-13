@@ -10,6 +10,14 @@ class HomeController = _HomeControllerBase with _$HomeController;
 abstract class _HomeControllerBase with Store {
   _HomeControllerBase();
 
+  @observable
+  int currentIndex = 0;
+
+  @action
+  void updateCurrentIndex(int index) {
+    currentIndex = index;
+  }
+
   logout() async {
     Modular.get<AuthController>().logout();
     Modular.to.pushReplacementNamed(Routes.login);

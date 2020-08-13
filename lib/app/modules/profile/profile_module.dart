@@ -1,9 +1,10 @@
+import 'package:flutter/material.dart';
+
 import 'profile_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:dio/dio.dart';
 import 'profile_page.dart';
 
-class ProfileModule extends ChildModule {
+class ProfileModule extends WidgetModule {
   @override
   List<Bind> get binds => [
         Bind((i) => ProfileController()),
@@ -15,4 +16,7 @@ class ProfileModule extends ChildModule {
       ];
 
   static Inject get to => Inject<ProfileModule>.of();
+
+  @override
+  Widget get view => ProfilePage();
 }
