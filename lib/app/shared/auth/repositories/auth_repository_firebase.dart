@@ -8,9 +8,11 @@ class AuthRepositoryFirebase implements AuthRepositoryInterface {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
+  // ignore: missing_return
   Future<FirebaseUser> getEmailPasswordLogin() {}
 
   @override
+  // ignore: missing_return
   Future<FirebaseUser> getFacebookLogin() {}
 
   @override

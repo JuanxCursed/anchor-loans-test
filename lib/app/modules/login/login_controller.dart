@@ -1,8 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:anchor_loans_test/app/shared/auth/auth_controller.dart';
+import 'package:anchor_loans_test/app/shared/constants/routes.dart';
 import 'package:mobx/mobx.dart';
-import '../../shared/auth/auth_controller.dart';
-import '../../shared/constants/routes.dart';
-
 
 part 'login_controller.g.dart';
 

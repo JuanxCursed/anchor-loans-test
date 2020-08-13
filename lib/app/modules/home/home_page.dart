@@ -16,12 +16,13 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
-        children: <Widget>[],
-      ),
-    );
+        appBar: AppBar(
+          title: Text(widget.title),
+          leading: IconButton(
+            icon: Icon(Icons.highlight_off),
+            onPressed: controller.logout,
+          ),
+        ),
+        body: Text('Home page'));
   }
 }

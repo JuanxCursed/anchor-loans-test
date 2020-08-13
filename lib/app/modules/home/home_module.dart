@@ -1,7 +1,6 @@
-import 'home_controller.dart';
+import 'package:anchor_loans_test/app/modules/home/home_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-// import 'package:dio/dio.dart';
-import 'home_page.dart';
+import 'package:anchor_loans_test/app/modules/home/home_page.dart';
 
 class HomeModule extends ChildModule {
   @override
