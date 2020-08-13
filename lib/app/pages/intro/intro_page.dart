@@ -16,27 +16,50 @@ class _IntroPageState extends State<IntroPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image.asset(
               'assets/images/intro.png',
               fit: BoxFit.fitWidth,
             ),
             Container(
+              padding: EdgeInsets.symmetric(horizontal: 40.0),
               child: Column(
                 children: <Widget>[
                   Text(
                     'Welcome to Borrower Portal',
-                    style: Theme.of(context).textTheme.headline3,
+                    style: Theme.of(context).textTheme.headline6,
+                    textAlign: TextAlign.center,
                   ),
-                  Text('Come on in! We\'re glad to have you here.'),
-                  RaisedButton(
-                    onPressed: () =>
-                        Modular.to.pushReplacementNamed('register'),
-                    child: Text('SING UP'),
+                  SizedBox(height: 10.0),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 40.0),
+                    child: Text(
+                      'Come on in! We\'re glad to have you here.',
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                  FlatButton(
-                    onPressed: () => Modular.to.pushReplacementNamed('login'),
-                    child: Text('LOG IN'),
+                  SizedBox(height: 20.0),
+                  SizedBox(
+                    width: double.infinity,
+                    child: RaisedButton(
+                      onPressed: () =>
+                          Modular.to.pushReplacementNamed('register'),
+                      child: Text(
+                        'SING UP',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: FlatButton(
+                      onPressed: () => Modular.to.pushReplacementNamed('login'),
+                      child: Text(
+                        'LOG IN',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   ),
                 ],
               ),

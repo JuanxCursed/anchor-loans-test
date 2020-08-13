@@ -1,4 +1,5 @@
 import 'package:anchor_loans_test/app/shared/constants/fonts.dart';
+import 'package:anchor_loans_test/app/shared/constants/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:anchor_loans_test/app/shared/constants/flavors.dart';
@@ -12,17 +13,8 @@ class AppWidget extends StatelessWidget {
       title: Environment.isReleaseBuild
           ? FlavorRelease.appName
           : FlavorDebug.appName,
-      theme: new ThemeData(
-        brightness: Brightness.light,
-        primaryColor: Colors.lightBlue[800],
-        accentColor: Colors.cyan[600],
-        fontFamily: FontFamily.roboto,
-        textTheme: TextTheme(
-          headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-          headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-          bodyText2: TextStyle(fontSize: 14.0, fontFamily: FontFamily.productSans),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
       initialRoute: '/',
       onGenerateRoute: Modular.generateRoute,
     );
