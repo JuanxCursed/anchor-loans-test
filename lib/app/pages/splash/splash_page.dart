@@ -33,22 +33,16 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/bg.jpg"),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: Center(
-              child:  Image(image: AssetImage('assets/logo.png'))        
-            ),
-          ),
-        ]
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/bg.jpg"),
+          fit: BoxFit.cover,
+        ),
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 60),
+      child: Center(
+        child: Image.asset('assets/images/logo.png'),
       ),
     );
   }
