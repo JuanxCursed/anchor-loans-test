@@ -1,8 +1,8 @@
 import 'package:flutter_modular/flutter_modular_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:anchor_loans_test/anchor_loans_test/app/app_controller.dart';
-import 'package:anchor_loans_test/anchor_loans_test/app/app_module.dart';
+import 'package:anchor_loans_test/app/app_controller.dart';
+import 'package:anchor_loans_test/app/app_module.dart';
 
 void main() {
   initModule(AppModule());

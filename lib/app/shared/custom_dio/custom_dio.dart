@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:marriedgames_app/app/shared/custom_dio/interceptors.dart';
+import 'package:anchor_loans_test/app/shared/custom_dio/interceptors.dart';
 
 class CustomDio {
   static const int TIMEOUT = 4000;

@@ -27,13 +27,13 @@ mixin _$AuthController on _AuthControllerBase, Store {
   final _$userAtom = Atom(name: '_AuthControllerBase.user');
 
   @override
-  dynamic get user {
+  FirebaseUser get user {
     _$userAtom.reportRead();
     return super.user;
   }
 
   @override
-  set user(dynamic value) {
+  set user(FirebaseUser value) {
     _$userAtom.reportWrite(value, super.user, () {
       super.user = value;
     });
@@ -51,7 +51,7 @@ mixin _$AuthController on _AuthControllerBase, Store {
       ActionController(name: '_AuthControllerBase');
 
   @override
-  dynamic setUser(dynamic value) {
+  dynamic setUser(FirebaseUser value) {
     final _$actionInfo = _$_AuthControllerBaseActionController.startAction(
         name: '_AuthControllerBase.setUser');
     try {

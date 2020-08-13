@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marriedgames_app/app/shared/auth/auth_controller.dart';
-import 'package:marriedgames_app/app/shared/constants/routes.dart';
-import 'package:marriedgames_app/app/shared/constants/theme.dart';
+import 'package:anchor_loans_test/app/shared/auth/auth_controller.dart';
+import 'package:anchor_loans_test/app/shared/constants/routes.dart';
+import 'package:anchor_loans_test/app/shared/constants/theme.dart';
 import 'package:mobx/mobx.dart';
 
 class SplashPage extends StatefulWidget {
