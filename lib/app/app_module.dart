@@ -1,5 +1,8 @@
 import 'package:anchor_loans_test/app/modules/login/login_module.dart';
 import 'package:anchor_loans_test/app/pages/splash/splash_page.dart';
+import 'package:anchor_loans_test/app/shared/auth/auth_controller.dart';
+import 'package:anchor_loans_test/app/shared/auth/repositories/auth_repository_firebase.dart';
+import 'package:anchor_loans_test/app/shared/auth/repositories/auth_repository_interface.dart';
 import 'package:anchor_loans_test/app/shared/constants/routes.dart';
 
 import 'app_controller.dart';
@@ -12,6 +15,8 @@ class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
         Bind((i) => AppController()),
+        Bind((i) => AuthController()),
+        Bind<AuthRepositoryInterface>((i) => AuthRepositoryFirebase()),
       ];
 
   @override
