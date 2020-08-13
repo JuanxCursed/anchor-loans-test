@@ -18,8 +18,11 @@ class AppTheme {
       TextStyle(fontSize: defaultFontSize * 3.2, fontWeight: FontWeight.bold);
   static TextStyle headline3 =
       TextStyle(fontSize: defaultFontSize * 2.7, fontWeight: FontWeight.bold);
-  static TextStyle headline4 =
-      TextStyle(fontSize: defaultFontSize * 2.4, fontWeight: FontWeight.bold);
+  static TextStyle headline4 = TextStyle(
+    fontSize: defaultFontSize * 2.4,
+    fontWeight: FontWeight.bold,
+    color: Colors.grey.shade800,
+  );
   static TextStyle headline5 =
       TextStyle(fontSize: defaultFontSize * 2.0, fontWeight: FontWeight.bold);
   static TextStyle headline6 =
@@ -65,6 +68,7 @@ class AppTheme {
     buttonTheme: ButtonThemeData(
       // buttonColor: primaryColor,
       textTheme: ButtonTextTheme.primary,
+      height: 50.0,
       colorScheme: ColorScheme.light(
         primary: primaryColor,
         onPrimary: Colors.white,

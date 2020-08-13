@@ -43,8 +43,7 @@ class _IntroPageState extends State<IntroPage> {
                   SizedBox(
                     width: double.infinity,
                     child: RaisedButton(
-                      onPressed: () =>
-                          Modular.to.pushReplacementNamed('register'),
+                      onPressed: () => Modular.to.pushNamed('register'),
                       child: Text(
                         'SING UP',
                         style: TextStyle(fontWeight: FontWeight.bold),
@@ -54,7 +53,7 @@ class _IntroPageState extends State<IntroPage> {
                   SizedBox(
                     width: double.infinity,
                     child: FlatButton(
-                      onPressed: () => Modular.to.pushReplacementNamed('login'),
+                      onPressed: () => Modular.to.pushNamed('login'),
                       child: Text(
                         'LOG IN',
                         style: TextStyle(fontWeight: FontWeight.bold),

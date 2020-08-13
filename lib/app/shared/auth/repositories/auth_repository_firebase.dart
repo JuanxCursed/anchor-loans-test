@@ -1,3 +1,4 @@
+import 'package:anchor_loans_test/app/shared/auth/models/authentication_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -8,10 +9,9 @@ class AuthRepositoryFirebase implements AuthRepositoryInterface {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
-  Future<FirebaseUser> getEmailPasswordLogin(
-      String email, String password) async {
+  Future<FirebaseUser> getEmailPasswordLogin(AuthenticationModel auth) async {
     AuthResult result = await _auth.signInWithEmailAndPassword(
-        email: email, password: password);
+        email: auth.email, password: auth.password);
     final FirebaseUser user = result.user;
 
     assert(user != null);
@@ -21,7 +21,6 @@ class AuthRepositoryFirebase implements AuthRepositoryInterface {
     assert(user.uid == currentUser.uid);
 
     print('sign with email: ' + user.displayName);
-
     return user;
   }
 
@@ -42,6 +41,7 @@ class AuthRepositoryFirebase implements AuthRepositoryInterface {
 
     final FirebaseUser user =
         (await _auth.signInWithCredential(credential)).user;
+
     print("signed in with google" + user.displayName);
     return user;
   }

@@ -1,4 +1,4 @@
-
+import 'package:anchor_loans_test/app/shared/auth/models/authentication_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:anchor_loans_test/app/shared/auth/repositories/auth_repository_interface.dart';
@@ -31,6 +31,11 @@ abstract class _AuthControllerBase with Store {
   @action
   Future loginWithGoogle() async {
     user = await _authRepository.getGoogleLogin();
+  }
+
+  @action
+  Future loginWithEmailAndPassword(AuthenticationModel auth) async {
+    user = await _authRepository.getEmailPasswordLogin(auth);
   }
 
   @action
