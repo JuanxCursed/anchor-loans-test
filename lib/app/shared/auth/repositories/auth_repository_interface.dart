@@ -4,6 +4,6 @@ abstract class AuthRepositoryInterface {
   Future<FirebaseUser> getUser();
   Future<FirebaseUser> getGoogleLogin();
   Future<FirebaseUser> getFacebookLogin();
-  Future<FirebaseUser> getEmailPasswordLogin();
+  Future<FirebaseUser> getEmailPasswordLogin(String email, String password);
   Future getLogout();
 }

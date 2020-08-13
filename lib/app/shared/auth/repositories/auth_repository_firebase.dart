@@ -8,8 +8,22 @@ class AuthRepositoryFirebase implements AuthRepositoryInterface {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
-  // ignore: missing_return
-  Future<FirebaseUser> getEmailPasswordLogin() {}
+  Future<FirebaseUser> getEmailPasswordLogin(
+      String email, String password) async {
+    AuthResult result = await _auth.signInWithEmailAndPassword(
+        email: email, password: password);
+    final FirebaseUser user = result.user;
+
+    assert(user != null);
+    assert(await user.getIdToken() != null);
+
+    final FirebaseUser currentUser = await _auth.currentUser();
+    assert(user.uid == currentUser.uid);
+
+    print('sign with email: ' + user.displayName);
+
+    return user;
+  }
 
   @override
   // ignore: missing_return
@@ -28,7 +42,7 @@ class AuthRepositoryFirebase implements AuthRepositoryInterface {
 
     final FirebaseUser user =
         (await _auth.signInWithCredential(credential)).user;
-    print("signed in " + user.displayName);
+    print("signed in with google" + user.displayName);
     return user;
   }
 

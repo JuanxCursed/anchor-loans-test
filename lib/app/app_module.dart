@@ -1,4 +1,5 @@
 import 'package:anchor_loans_test/app/modules/login/login_module.dart';
+import 'package:anchor_loans_test/app/pages/intro/intro_page.dart';
 import 'package:anchor_loans_test/app/pages/splash/splash_page.dart';
 import 'package:anchor_loans_test/app/shared/auth/auth_controller.dart';
 import 'package:anchor_loans_test/app/shared/auth/repositories/auth_repository_firebase.dart';
@@ -21,11 +22,24 @@ class AppModule extends MainModule {
 
   @override
   List<Router> get routers => [
-        Router(Modular.initialRoute, child: (_, args) => SplashPage()),
-        Router(Routes.home,
-            module: HomeModule(), transition: TransitionType.fadeIn),
-        Router(Routes.login,
-            module: LoginModule(), transition: TransitionType.noTransition),
+        Router(
+          Modular.initialRoute,
+          child: (_, __) => SplashPage(),
+        ),
+        Router(
+          Routes.welcome,
+          child: (_, __) => IntroPage(),
+        ),
+        Router(
+          Routes.home,
+          module: HomeModule(),
+          transition: TransitionType.fadeIn,
+        ),
+        Router(
+          Routes.login,
+          module: LoginModule(),
+          transition: TransitionType.noTransition,
+        ),
       ];
 
   @override
