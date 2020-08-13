@@ -3,23 +3,29 @@ import 'package:flutter/material.dart';
 class AppTheme {
   AppTheme._();
 
-  static String productSans = "ProductSans";
-  static String roboto = "Roboto";
-  static String defaultFontFamily = roboto;
+  static String accentFontFamily = "ProductSans";
+  static String primaryFontFamily = "Roboto";
 
   static const defaultFontSize = 16.0;
 
   static TextStyle body1 = TextStyle(
-    fontSize: defaultFontSize * 0.8,
+    fontSize: defaultFontSize * 0.7,
     color: Colors.grey.shade400,
   );
   static TextStyle body2 = TextStyle(
     fontSize: defaultFontSize,
-    fontFamily: productSans,
+    fontFamily: accentFontFamily,
+  );
+
+  static TextStyle subtitle2 = TextStyle(
+    fontSize: defaultFontSize * 1.2,
+    fontFamily: primaryFontFamily,
+    color: Colors.grey.shade700,
+    fontWeight: FontWeight.normal,
   );
 
   static TextStyle caption = TextStyle(
-    fontSize: defaultFontSize * 0.8,
+    fontSize: defaultFontSize * 0.7,
     fontWeight: FontWeight.bold,
     color: Colors.blue.shade600,
   );
@@ -74,7 +80,7 @@ class AppTheme {
     ),
     primaryColor: primaryColor,
     accentColor: accentColor,
-    fontFamily: defaultFontFamily,
+    fontFamily: primaryFontFamily,
     cardTheme: CardTheme(
       color: Colors.white,
     ),
@@ -82,17 +88,18 @@ class AppTheme {
       color: Colors.white54,
     ),
     textTheme: TextTheme(
-        headline1: headline1,
-        headline2: headline2,
-        headline3: headline3,
-        headline4: headline4,
-        headline5: headline5,
-        headline6: headline6,
-        bodyText1: body1,
-        bodyText2: body2,
-        caption: caption),
+      headline1: headline1,
+      headline2: headline2,
+      headline3: headline3,
+      headline4: headline4,
+      headline5: headline5,
+      headline6: headline6,
+      bodyText1: body1,
+      bodyText2: body2,
+      caption: caption,
+      subtitle2: subtitle2,
+    ),
     buttonTheme: ButtonThemeData(
-      // buttonColor: primaryColor,
       textTheme: ButtonTextTheme.primary,
       height: 50.0,
       colorScheme: ColorScheme.light(

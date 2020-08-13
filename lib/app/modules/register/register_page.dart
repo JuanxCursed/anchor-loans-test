@@ -1,4 +1,6 @@
+import 'package:anchor_loans_test/app/shared/widgets/loading.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'register_controller.dart';
 
@@ -96,7 +98,7 @@ class _RegisterPageState
                       width: double.infinity,
                       child: RaisedButton(
                         onPressed: () async {
-                          var user = await controller.loginWithEmail();
+                          var user;
                           if (user != null) {
                             Modular.to.popAndPushNamed('/home');
                           }
