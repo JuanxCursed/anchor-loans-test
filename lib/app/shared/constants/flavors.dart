@@ -3,9 +3,9 @@ abstract class FlavorInterface {
 }
 
 class FlavorDebug implements FlavorInterface {
-  static String appName = "Married Games Debug";
+  static String appName = "Anchor Loans Debug";
 }
 
 class FlavorRelease implements FlavorInterface {
-  static String appName = "Married Games";
+  static String appName = "Anchor Loans";
 }
