@@ -42,6 +42,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       return BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        selectedItemColor: Colors.grey.shade700,
+        unselectedItemColor: Colors.grey.shade400,
         backgroundColor: Colors.white,
         type: BottomNavigationBarType.fixed,
         currentIndex: controller.currentIndex,
