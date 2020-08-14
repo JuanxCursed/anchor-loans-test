@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'dashboard_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'dashboard_page.dart';

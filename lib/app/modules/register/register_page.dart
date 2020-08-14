@@ -21,52 +21,31 @@ class _RegisterPageState
     });
   }
 
-  Widget showEmailInput() {
+  Widget showInput(String label, TextInputType type) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0.0, 100.0, 0.0, 0.0),
+      padding: const EdgeInsets.only(bottom: 20),
       child: new TextFormField(
         maxLines: 1,
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: type,
         autofocus: false,
         decoration: new InputDecoration(
-          hintText: 'Email',
+          hintText: label,
           border: new OutlineInputBorder(
             borderSide: new BorderSide(),
           ),
         ),
-        validator: (value) => value.isEmpty ? 'Email can\'t be empty' : null,
-        onChanged: (value) => controller.email = value.trim(),
-      ),
-    );
-  }
-
-  Widget showPasswordInput() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
-      child: new TextFormField(
-        maxLines: 1,
-        obscureText: _obscureText,
-        autofocus: false,
-        decoration: new InputDecoration(
-          hintText: 'Password',
-          border: new OutlineInputBorder(
-            borderSide: new BorderSide(),
-          ),
-          suffixIcon: IconButton(
-              icon: Icon(
-                _obscureText ? Icons.visibility : Icons.visibility_off,
-                color: Colors.grey.shade800,
-              ),
-              onPressed: _togglePassword),
-        ),
-        validator: (value) => value.isEmpty ? 'Password can\'t be empty' : null,
-        onChanged: (value) => controller.password = value.trim(),
+        validator: (value) =>
+            value.isEmpty ? 'The $label can\'t be empty' : null,
+        onChanged: (value) =>
+            controller.email = value.trim(), // just for this test
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    List<bool> _selections = List.generate(3, (_) => false);
+
     return Scaffold(
       appBar: AppBar(
           leading: IconButton(
@@ -75,50 +54,75 @@ class _RegisterPageState
           ),
           backgroundColor: Colors.transparent,
           elevation: 0.0),
-      body: SingleChildScrollView(
+      body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 20.0),
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              width: double.infinity,
-              child: Text(
-                'Log in',
-                style: Theme.of(context).textTheme.headline4,
-                textAlign: TextAlign.start,
-              ),
-            ),
-            showEmailInput(),
-            SizedBox(height: 10.0),
-            showPasswordInput(),
-            SizedBox(height: 20.0),
-            Observer(
-              builder: (_) => controller.loading
-                  ? Loaging()
-                  : SizedBox(
-                      width: double.infinity,
-                      child: RaisedButton(
-                        onPressed: () async {
-                          var user;
-                          if (user != null) {
-                            Modular.to.popAndPushNamed('/home');
-                          }
-                        },
-                        child: Text("Log in"),
-                      ),
-                    ),
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: FlatButton(
-                onPressed: () => Modular.to.pop(),
-                textColor: Colors.grey.shade800,
-                child: Text(
-                  'Forgot your password?',
+        children: [
+          Text(
+            'Sign up',
+            style: Theme.of(context).textTheme.headline4,
+            textAlign: TextAlign.start,
+          ),
+          showInput('Full Name', TextInputType.text),
+          showInput('E-mail', TextInputType.emailAddress),
+          showInput('Birthday', TextInputType.datetime),
+          showInput('Primary Address', TextInputType.streetAddress),
+          showInput('Password', TextInputType.visiblePassword),
+          SizedBox(height: 20.0),
+          ToggleButtons(
+            borderRadius: BorderRadius.circular(5),
+            children: <Widget>[
+              Container(
+                width: (MediaQuery.of(context).size.width - 135) / 3,
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text('I\'m a...'),
+                  ],
                 ),
               ),
+              Container(
+                width: (MediaQuery.of(context).size.width) / 3,
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text('Borrower'),
+                  ],
+                ),
+              ),
+              Container(
+                width: (MediaQuery.of(context).size.width) / 3,
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text('Investor'),
+                  ],
+                ),
+              ),
+            ],
+            isSelected: _selections,
+            onPressed: (int index) {
+              if (index > 0) {
+                setState(() {
+                  _selections[index] = !_selections[index];
+                });
+              }
+            },
+          ),
+          SizedBox(height: 20.0),
+          SizedBox(
+            width: double.infinity,
+            child: RaisedButton(
+              onPressed: () async {
+                var user;
+                if (user != null) {
+                  Modular.to.popAndPushNamed('/home');
+                }
+              },
+              child: Text("Sign up"),
             ),
-          ],
-        ),
+          ),
+          SizedBox(height: 20.0),
+        ],
       ),
     );
   }

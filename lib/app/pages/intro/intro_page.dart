@@ -1,3 +1,4 @@
+import 'package:anchor_loans_test/app/shared/constants/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
@@ -43,7 +44,7 @@ class _IntroPageState extends State<IntroPage> {
                   SizedBox(
                     width: double.infinity,
                     child: RaisedButton(
-                      onPressed: () => Modular.to.pushReplacementNamed('home'),
+                      onPressed: () => Modular.to.pushNamed(Routes.register),
                       child: Text(
                         'SING UP',
                         style: TextStyle(fontWeight: FontWeight.bold),
@@ -53,7 +54,7 @@ class _IntroPageState extends State<IntroPage> {
                   SizedBox(
                     width: double.infinity,
                     child: FlatButton(
-                      onPressed: () => Modular.to.pushNamed('login'),
+                      onPressed: () => Modular.to.pushNamed(Routes.login),
                       child: Text(
                         'LOG IN',
                         style: TextStyle(fontWeight: FontWeight.bold),

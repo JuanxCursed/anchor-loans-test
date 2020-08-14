@@ -1,4 +1,3 @@
-import 'package:anchor_loans_test/app/shared/constants/fonts.dart';
 import 'package:anchor_loans_test/app/shared/constants/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -16,7 +15,7 @@ class AppWidget extends StatelessWidget {
           : FlavorDebug.appName,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      initialRoute: Routes.home,
+      initialRoute: Routes.launch,
       onGenerateRoute: Modular.generateRoute,
     );
   }

@@ -1,4 +1,6 @@
+import 'package:anchor_loans_test/app/modules/details/details_module.dart';
 import 'package:anchor_loans_test/app/modules/login/login_module.dart';
+import 'package:anchor_loans_test/app/modules/register/register_module.dart';
 import 'package:anchor_loans_test/app/pages/intro/intro_page.dart';
 import 'package:anchor_loans_test/app/pages/splash/splash_page.dart';
 import 'package:anchor_loans_test/app/shared/auth/auth_controller.dart';
@@ -38,7 +40,17 @@ class AppModule extends MainModule {
         Router(
           Routes.login,
           module: LoginModule(),
-          transition: TransitionType.noTransition,
+          transition: TransitionType.fadeIn,
+        ),
+        Router(
+          Routes.register,
+          module: RegisterModule(),
+          transition: TransitionType.fadeIn,
+        ),
+        Router(
+          Routes.details,
+          module: DetailsModule(),
+          transition: TransitionType.fadeIn,
         ),
       ];
 

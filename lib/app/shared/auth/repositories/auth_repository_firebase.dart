@@ -10,10 +10,13 @@ class AuthRepositoryFirebase implements AuthRepositoryInterface {
 
   @override
   Future<FirebaseUser> getEmailPasswordLogin(AuthenticationModel auth) async {
+    print(auth);
     AuthResult result = await _auth.signInWithEmailAndPassword(
-        email: auth.email, password: auth.password);
+      email: auth.email,
+      password: auth.password,
+    );
     final FirebaseUser user = result.user;
-
+    print(user);
     assert(user != null);
     assert(await user.getIdToken() != null);
 

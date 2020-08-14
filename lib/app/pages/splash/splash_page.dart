@@ -24,11 +24,11 @@ class _SplashPageState extends State<SplashPage> {
       Future.delayed(Duration(milliseconds: 2500)).then((_) {
         if (auth.status == AuthStatus.login) {
           // @event: is logged
-          //Modular.to.pushReplacementNamed(Routes.home);
+          Modular.to.pushReplacementNamed(Routes.home);
         } else if (auth.status == AuthStatus.logout) {
           // @event: not logged
           // @idea: maybe show intro only on first access, then if is not logged, show login page directly?
-          //Modular.to.pushReplacementNamed(Routes.welcome);
+          Modular.to.pushReplacementNamed(Routes.welcome);
         }
       });
     });

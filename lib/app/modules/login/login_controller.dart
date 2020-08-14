@@ -15,9 +15,9 @@ abstract class _LoginControllerBase with Store {
   @observable
   bool loading = false;
 
-  set email(String v) => auth.email = v;
+  set email(String v) => auth.email = v.trim();
   String get email => auth.email;
-  set password(String v) => auth.password = v;
+  set password(String v) => auth.password = v.trim();
   String get password => auth.password;
 
   @action
@@ -27,6 +27,7 @@ abstract class _LoginControllerBase with Store {
       await authController.loginWithGoogle();
       Modular.to.pushReplacementNamed(Routes.home);
     } catch (e) {
+      print(e);
       loading = false;
     }
   }
@@ -38,6 +39,7 @@ abstract class _LoginControllerBase with Store {
       await authController.loginWithEmailAndPassword(auth);
       Modular.to.pushReplacementNamed(Routes.home);
     } catch (e) {
+      print(e);
       loading = false;
     }
   }
