@@ -46,7 +46,7 @@ class _IntroPageState extends State<IntroPage> {
                     child: RaisedButton(
                       onPressed: () => Modular.to.pushNamed(Routes.register),
                       child: Text(
-                        'SING UP',
+                        'SIGN UP',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
