@@ -4,11 +4,14 @@ class RegistrationModel {
   String password;
   String primaryAddress;
   String birthDate;
+  int userType;
 
-  RegistrationModel(
-      {this.fullName,
-      this.email,
-      this.password,
-      this.primaryAddress,
-      this.birthDate});
+  RegistrationModel({
+    this.fullName,
+    this.email,
+    this.password,
+    this.primaryAddress,
+    this.birthDate,
+    this.userType,
+  });
 }

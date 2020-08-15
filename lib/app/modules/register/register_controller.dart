@@ -18,16 +18,25 @@ abstract class _RegisterControllerBase with Store {
   @observable
   Map<String, dynamic> fields = Map();
 
+  @observable
+  List<bool> selectedType = List.generate(3, (_) => false);
+
   @action
   void setField({@required String key, @required dynamic value}) {
     fields[key] = value;
   }
 
   @action
+  void setUserType({@required int type}) {
+    selectedType = List.generate(3, (_) => false);
+    selectedType[type] = !selectedType[type];
+  }
+
+  @action
   Future<void> register() async {
     var user = await authController.signInWithEmailAndPassword(
         fields['email'], fields['password']);
-
+    print(fields);
     await userRepo.save(authController.user.uid, fields);
 
     return user;

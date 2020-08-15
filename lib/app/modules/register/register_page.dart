@@ -62,6 +62,7 @@ class _RegisterPageState
             style: Theme.of(context).textTheme.headline4,
             textAlign: TextAlign.start,
           ),
+          SizedBox(height: 20.0),
           showInput('fullName', 'Full Name', TextInputType.text),
           showInput('email', 'E-mail', TextInputType.emailAddress),
           showInput('birthDate', 'Birthday', TextInputType.datetime),
@@ -100,11 +101,13 @@ class _RegisterPageState
                 ),
               ),
             ],
-            isSelected: _selections,
+            isSelected: controller.selectedType,
+            fillColor: Colors.blue,
             onPressed: (int index) {
               if (index > 0) {
                 setState(() {
-                  _selections[index] = !_selections[index];
+                  controller.setUserType(type: index);
+                  controller.fields['userType'] = index;
                 });
               }
             },
@@ -114,7 +117,7 @@ class _RegisterPageState
             width: double.infinity,
             child: RaisedButton(
               onPressed: () async {
-                var user;
+                var user = controller.register();
                 if (user != null) {
                   Modular.to.popAndPushNamed('/home');
                 }
