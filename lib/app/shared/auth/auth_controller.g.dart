@@ -56,14 +56,13 @@ mixin _$AuthController on _AuthControllerBase, Store {
         .run(() => super.loginWithEmailAndPassword(auth));
   }
 
-  final _$signInWithEmailAndPasswordAsyncAction =
-      AsyncAction('_AuthControllerBase.signInWithEmailAndPassword');
+  final _$signUpWithEmailAndPasswordAsyncAction =
+      AsyncAction('_AuthControllerBase.signUpWithEmailAndPassword');
 
   @override
-  Future<FirebaseUser> signInWithEmailAndPassword(
-      String email, String password) {
-    return _$signInWithEmailAndPasswordAsyncAction
-        .run(() => super.signInWithEmailAndPassword(email, password));
+  Future<dynamic> signUpWithEmailAndPassword(AuthenticationModel auth) {
+    return _$signUpWithEmailAndPasswordAsyncAction
+        .run(() => super.signUpWithEmailAndPassword(auth));
   }
 
   final _$_AuthControllerBaseActionController =

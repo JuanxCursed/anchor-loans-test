@@ -40,10 +40,9 @@ abstract class _AuthControllerBase with Store {
   }
 
   @action
-  Future<FirebaseUser> signInWithEmailAndPassword(
-      String email, String password) async {
-    return await _authRepository
-        .signInWithEmailAndPassword(AuthenticationModel(email, password));
+  Future signUpWithEmailAndPassword(AuthenticationModel auth) async {
+    var user = await _authRepository.signUpWithEmailAndPassword(auth);
+    setUser(user);
   }
 
   @action

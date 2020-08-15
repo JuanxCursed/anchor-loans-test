@@ -1,5 +1,8 @@
 import 'package:anchor_loans_test/app/shared/auth/models/authentication_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'auth_repository_interface.dart';
@@ -16,15 +19,16 @@ class AuthRepositoryFirebase implements AuthRepositoryInterface {
       password: auth.password,
     );
     final FirebaseUser user = result.user;
-    print(user);
-    assert(user != null);
-    assert(await user.getIdToken() != null);
 
-    final FirebaseUser currentUser = await _auth.currentUser();
-    assert(user.uid == currentUser.uid);
-
-    print('sign with email: ' + user.displayName);
     return user;
+  }
+
+  @override
+  Future<FirebaseUser> signUpWithEmailAndPassword(
+      AuthenticationModel auth) async {
+    var result = await _auth.createUserWithEmailAndPassword(
+        email: auth.email, password: auth.password);
+    return result.user;
   }
 
   @override

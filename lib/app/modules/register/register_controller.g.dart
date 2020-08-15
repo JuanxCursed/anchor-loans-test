@@ -39,6 +39,21 @@ mixin _$RegisterController on _RegisterControllerBase, Store {
     });
   }
 
+  final _$selectedTypeAtom = Atom(name: '_RegisterControllerBase.selectedType');
+
+  @override
+  List<bool> get selectedType {
+    _$selectedTypeAtom.reportRead();
+    return super.selectedType;
+  }
+
+  @override
+  set selectedType(List<bool> value) {
+    _$selectedTypeAtom.reportWrite(value, super.selectedType, () {
+      super.selectedType = value;
+    });
+  }
+
   final _$registerAsyncAction = AsyncAction('_RegisterControllerBase.register');
 
   @override
@@ -61,10 +76,22 @@ mixin _$RegisterController on _RegisterControllerBase, Store {
   }
 
   @override
+  void setUserType({@required int type}) {
+    final _$actionInfo = _$_RegisterControllerBaseActionController.startAction(
+        name: '_RegisterControllerBase.setUserType');
+    try {
+      return super.setUserType(type: type);
+    } finally {
+      _$_RegisterControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 loading: ${loading},
-fields: ${fields}
+fields: ${fields},
+selectedType: ${selectedType}
     ''';
   }
 }

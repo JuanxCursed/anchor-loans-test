@@ -113,17 +113,18 @@ class _RegisterPageState
             },
           ),
           SizedBox(height: 20.0),
-          SizedBox(
-            width: double.infinity,
-            child: RaisedButton(
-              onPressed: () async {
-                var user = controller.register();
-                if (user != null) {
-                  Modular.to.popAndPushNamed('/home');
-                }
-              },
-              child: Text("Sign up"),
-            ),
+          Observer(
+            builder: (_) => controller.loading
+                ? Loaging()
+                : SizedBox(
+                    width: double.infinity,
+                    child: RaisedButton(
+                      onPressed: () async {
+                        await controller.register();
+                      },
+                      child: Text("Sign up"),
+                    ),
+                  ),
           ),
           SizedBox(height: 20.0),
         ],

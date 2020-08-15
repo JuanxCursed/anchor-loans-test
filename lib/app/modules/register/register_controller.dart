@@ -1,4 +1,6 @@
 import 'package:anchor_loans_test/app/shared/auth/auth_controller.dart';
+import 'package:anchor_loans_test/app/shared/auth/models/authentication_model.dart';
+import 'package:anchor_loans_test/app/shared/constants/routes.dart';
 import 'package:anchor_loans_test/app/shared/repositories/users/user_repository_interface.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -34,11 +36,16 @@ abstract class _RegisterControllerBase with Store {
 
   @action
   Future<void> register() async {
-    var user = await authController.signInWithEmailAndPassword(
-        fields['email'], fields['password']);
-    print(fields);
-    await userRepo.save(authController.user.uid, fields);
-
-    return user;
+    try {
+      AuthenticationModel auth =
+          AuthenticationModel(fields['email'], fields['password']);
+      await authController.signUpWithEmailAndPassword(auth);
+      print(authController.user);
+      await userRepo.save(authController.user.uid, fields);
+      Modular.to.popAndPushNamed(Routes.home);
+    } catch (e) {
+      print(e);
+      loading = false;
+    }
   }
 }

@@ -7,5 +7,6 @@ abstract class AuthRepositoryInterface {
   Future<FirebaseUser> getFacebookLogin();
   Future<FirebaseUser> getEmailPasswordLogin(AuthenticationModel auth);
   Future<FirebaseUser> signInWithEmailAndPassword(AuthenticationModel auth);
+  Future<FirebaseUser> signUpWithEmailAndPassword(AuthenticationModel auth);
   Future getLogout();
 }

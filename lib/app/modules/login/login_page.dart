@@ -97,10 +97,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                       width: double.infinity,
                       child: RaisedButton(
                         onPressed: () async {
-                          var user = await controller.loginWithEmail();
-                          if (user != null) {
-                            Modular.to.popAndPushNamed('/home');
-                          }
+                          await controller.loginWithEmail();
                         },
                         child: Text("Log in"),
                       ),
