@@ -40,6 +40,13 @@ abstract class _AuthControllerBase with Store {
   }
 
   @action
+  Future<FirebaseUser> signInWithEmailAndPassword(
+      String email, String password) async {
+    return await _authRepository
+        .signInWithEmailAndPassword(AuthenticationModel(email, password));
+  }
+
+  @action
   Future logout() {
     return _authRepository.getLogout();
   }

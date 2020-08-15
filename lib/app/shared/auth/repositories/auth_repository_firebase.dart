@@ -58,4 +58,12 @@ class AuthRepositoryFirebase implements AuthRepositoryInterface {
   Future getLogout() {
     return _auth.signOut();
   }
+
+  @override
+  Future<FirebaseUser> signInWithEmailAndPassword(
+      AuthenticationModel auth) async {
+    var result = await _auth.signInWithEmailAndPassword(
+        email: auth.email, password: auth.password);
+    return result.user;
+  }
 }

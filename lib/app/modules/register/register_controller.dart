@@ -1,5 +1,6 @@
 import 'package:anchor_loans_test/app/shared/auth/auth_controller.dart';
-import 'package:anchor_loans_test/app/shared/auth/models/authentication_model.dart';
+import 'package:anchor_loans_test/app/shared/repositories/users/user_repository_interface.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
@@ -9,12 +10,26 @@ class RegisterController = _RegisterControllerBase with _$RegisterController;
 
 abstract class _RegisterControllerBase with Store {
   AuthController authController = Modular.get();
-  AuthenticationModel auth = AuthenticationModel('', '');
+  UserRepositoryInterface userRepo = Modular.get();
+
   @observable
   bool loading = false;
 
-  set email(String v) => auth.email = v;
-  String get email => auth.email;
-  set password(String v) => auth.password = v;
-  String get password => auth.password;
+  @observable
+  Map<String, dynamic> fields = Map();
+
+  @action
+  void setField({@required String key, @required dynamic value}) {
+    fields[key] = value;
+  }
+
+  @action
+  Future<void> register() async {
+    var user = await authController.signInWithEmailAndPassword(
+        fields['email'], fields['password']);
+
+    await userRepo.save(authController.user.uid, fields);
+
+    return user;
+  }
 }

@@ -24,10 +24,47 @@ mixin _$RegisterController on _RegisterControllerBase, Store {
     });
   }
 
+  final _$fieldsAtom = Atom(name: '_RegisterControllerBase.fields');
+
+  @override
+  Map<String, dynamic> get fields {
+    _$fieldsAtom.reportRead();
+    return super.fields;
+  }
+
+  @override
+  set fields(Map<String, dynamic> value) {
+    _$fieldsAtom.reportWrite(value, super.fields, () {
+      super.fields = value;
+    });
+  }
+
+  final _$registerAsyncAction = AsyncAction('_RegisterControllerBase.register');
+
+  @override
+  Future<void> register() {
+    return _$registerAsyncAction.run(() => super.register());
+  }
+
+  final _$_RegisterControllerBaseActionController =
+      ActionController(name: '_RegisterControllerBase');
+
+  @override
+  void setField({@required String key, @required dynamic value}) {
+    final _$actionInfo = _$_RegisterControllerBaseActionController.startAction(
+        name: '_RegisterControllerBase.setField');
+    try {
+      return super.setField(key: key, value: value);
+    } finally {
+      _$_RegisterControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
-loading: ${loading}
+loading: ${loading},
+fields: ${fields}
     ''';
   }
 }

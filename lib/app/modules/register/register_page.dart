@@ -21,7 +21,7 @@ class _RegisterPageState
     });
   }
 
-  Widget showInput(String label, TextInputType type) {
+  Widget showInput(String key, String label, TextInputType type) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: new TextFormField(
@@ -36,8 +36,8 @@ class _RegisterPageState
         ),
         validator: (value) =>
             value.isEmpty ? 'The $label can\'t be empty' : null,
-        onChanged: (value) =>
-            controller.email = value.trim(), // just for this test
+        onChanged: (value) => controller.setField(
+            key: key, value: value.trim()), // just for this test
       ),
     );
   }
@@ -62,11 +62,12 @@ class _RegisterPageState
             style: Theme.of(context).textTheme.headline4,
             textAlign: TextAlign.start,
           ),
-          showInput('Full Name', TextInputType.text),
-          showInput('E-mail', TextInputType.emailAddress),
-          showInput('Birthday', TextInputType.datetime),
-          showInput('Primary Address', TextInputType.streetAddress),
-          showInput('Password', TextInputType.visiblePassword),
+          showInput('fullName', 'Full Name', TextInputType.text),
+          showInput('email', 'E-mail', TextInputType.emailAddress),
+          showInput('birthDate', 'Birthday', TextInputType.datetime),
+          showInput(
+              'primaryAddress', 'Primary Address', TextInputType.streetAddress),
+          showInput('password', 'Password', TextInputType.visiblePassword),
           SizedBox(height: 20.0),
           ToggleButtons(
             borderRadius: BorderRadius.circular(5),
